@@ -1,6 +1,7 @@
 require 'api_constraints'
 
 MarketPlaceApi::Application.routes.draw do
+  mount SabisuRails::Engine => "/sabisu_rails"
   get "dummy/index"
   # Api definition
   namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api' }, path: '/'  do
