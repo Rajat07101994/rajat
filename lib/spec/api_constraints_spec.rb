@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'api_constraints'
 
 describe ApiConstraints do
   let(:api_constraints_v1) { ApiConstraints.new(version: 1) }

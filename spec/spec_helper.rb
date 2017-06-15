@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require "email_spec"
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -38,6 +39,17 @@ RSpec.configure do |config|
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
-  config.include Request::JsonHelpers, :type => :controller
   config.order = "random"
+
+  #Including to test requests
+  config.include Request::JsonHelpers, :type => :controller
+  config.include Request::HeadersHelpers, :type => :controller
+  config.include Devise::TestHelpers, :type => :controller
+
+  config.include(EmailSpec::Helpers)
+  config.include(EmailSpec::Matchers)
+
+  config.before(:each, type: :controller) do
+    include_default_accept_headers
+  end
 end
