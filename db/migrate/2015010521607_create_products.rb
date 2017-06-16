@@ -5,7 +5,6 @@ class CreateProducts < ActiveRecord::Migration
       t.decimal :price
       t.boolean :published
       t.integer :user_id
-
       t.timestamps
     end
     add_index :products, :user_id
