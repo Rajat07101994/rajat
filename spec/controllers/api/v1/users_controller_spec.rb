@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe Api::V1::UsersController do
-  before(:each) {request.header['Accept'] == "application/vnd.marketplace.v1, #{Mine::JSON}"}
-  before(:each) {request.header['Content-Type'] = Mine::JSON.to_s}
   describe "GET #show" do
     before(:each) do 
       @user = FactoryGirl.create :user
@@ -10,13 +8,8 @@ describe Api::V1::UsersController do
     end
 
     it "returns the information about a reporter on a hash" do
-      user_response = json_response[:user]
+      user_response = json_response
       expect(user_response[:email]).to eql @user.email
-    end
-
-    it "has the product ids as an embeded object" do
-      user_response = json_response[:user]
-      expect(user_response[:product_ids]).to eql []
     end
 
     it { should respond_with 200 }
@@ -31,7 +24,7 @@ describe Api::V1::UsersController do
       end
 
       it "renders the json representation for the user record just created" do
-        user_response = json_response[:user]
+        user_response = json_response
         expect(user_response[:email]).to eql @user_attributes[:email]
       end
 
@@ -70,7 +63,7 @@ describe Api::V1::UsersController do
       end
 
       it "renders the json representation for the updated user" do
-        user_response = json_response[:user]
+        user_response = json_response
         expect(user_response[:email]).to eql "newmail@example.com"
       end
 
