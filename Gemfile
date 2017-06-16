@@ -23,6 +23,9 @@ gem 'jquery-rails'
 #Api gems
 gem 'active_model_serializers'
 
+gem 'turbolinks', '1.1.1'
+gem 'jbuilder', '1.0.2'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -30,6 +33,7 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'byebug'
 end
 
 group :development, :test do
@@ -65,4 +69,4 @@ gem 'delayed_job_active_record'
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+#gem 'debugger', group: [:development, :test]
