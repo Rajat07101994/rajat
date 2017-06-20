@@ -1,11 +1,6 @@
-class OrderProductSerializer < ProductSerializer
-  cached
-
+class OrderProductSerializer < ActiveModel::Serializer
   def include_user?
     false
   end
-
-  def cache_key
-    [object, scope]
-  end
 end
+##

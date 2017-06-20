@@ -9,8 +9,6 @@ describe Product do
   it { should respond_to(:published) }
   it { should respond_to(:user_id) }
   it { should respond_to(:user) }
-  it { should have_many(:placements)}
-  it { should have_many(:orders).through(:placements) }
 
   it { should validate_presence_of :title }
   it { should validate_presence_of :price }
@@ -18,6 +16,8 @@ describe Product do
   it { should validate_presence_of :user_id }
 
   it { should belong_to :user }
+  it { should have_many(:placements) }
+  it { should have_many(:orders).through(:placements) }
 
   describe ".filter_by_title" do
     before(:each) do
@@ -99,7 +99,7 @@ describe Product do
     context "when title 'tv', '150' as max price, and '50' as min price are set" do
       it "returns the product1" do
         search_hash = { keyword: "tv", min_price: 50, max_price: 150 }
-        expect(Product.search(search_hash)).to match_array([@product1])
+        expect(Product.search(search_hash)).to match_array([@product1]) 
       end
     end
 
@@ -116,5 +116,5 @@ describe Product do
       end
     end
   end
-
+  
 end
