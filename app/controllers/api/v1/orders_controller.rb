@@ -3,6 +3,7 @@ class Api::V1::OrdersController < ApplicationController
   respond_to :json
 
   def index
+    byebug
     orders = current_user.orders.page(params[:page]).per(params[:per_page])
     render json: orders, meta: pagination(orders, params[:per_page])
   end
