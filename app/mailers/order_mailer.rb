@@ -7,3 +7,4 @@ class OrderMailer < ActionMailer::Base
     mail to: @user.email, subject: "Order Confirmation"
   end
 end
+###########
