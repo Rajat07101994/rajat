@@ -1,4 +1,4 @@
-class OrderProductSerializer < ActiveModel::Serializer
+class OrderProductSerializer < ProductSerializer
   def include_user?
     false
   end
