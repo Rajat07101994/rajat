@@ -1,13 +1,4 @@
 GIT
-  remote: git://github.com/IcaliaLabs/sabisu-rails.git
-  revision: e55dfbd679ac3ec2401178d5f809773f09373bcf
-  specs:
-    sabisu_rails (0.0.2.beta)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
-      httparty (~> 0.13)
-
-GIT
   remote: git@github.com:rails-api/active_model_serializers.git
   revision: 07addbf8c7c53c6ec4a0cf9fe4cf204dafe18929
   branch: 0-8-stable
@@ -103,8 +94,6 @@ GEM
       compass-rails (~> 2.0)
       railties (>= 3.1.0)
     hike (1.2.3)
-    httparty (0.15.5)
-      multi_xml (>= 0.5.2)
     i18n (0.8.4)
     jbuilder (1.0.2)
       activesupport (>= 3.0.0)
@@ -124,7 +113,6 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.12.1)
-    multi_xml (0.6.0)
     orm_adapter (0.5.0)
     pg (0.20.0)
     polyglot (0.3.5)
@@ -227,7 +215,6 @@ DEPENDENCIES
   pg (= 0.20.0)
   rails (= 4.0.2)
   rspec-rails (~> 2.14)
-  sabisu_rails!
   sass-rails (~> 4.0.0)
   sdoc
   shoulda-matchers
