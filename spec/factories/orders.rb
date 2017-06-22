@@ -4,5 +4,6 @@ FactoryGirl.define do
   factory :order do
     user
     total 0
+    quantity 1
   end
 end
