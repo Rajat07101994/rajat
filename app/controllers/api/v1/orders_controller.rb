@@ -5,7 +5,9 @@ class Api::V1::OrdersController < ApplicationController
 
   def index
     byebug
-    respond_with current_user.orders
+    #respond_with current_user.orders
+    orders = current_user.orders.page(params[:page]).per(params[:per_page])
+    render json: orders, meta: pagination(orders, params[:per_page])
   end
 
   def show
@@ -21,9 +23,8 @@ class Api::V1::OrdersController < ApplicationController
       byebug
       if order.save
         order.reload #we reload the object so the response displays the product objects
-        OrderMailer.send_confirmation(order).deliver
+         OrderMailer.delay.send_confirmation(order)
         render json: order, status: 201, location: [:api, current_user, order]
-
       else
         render json: { errors: order.errors }, status: 422
       end

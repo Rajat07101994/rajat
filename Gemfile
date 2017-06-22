@@ -33,11 +33,11 @@ group :doc do
 end
 
 group :development do
-  gem 'sqlite3'
-  gem 'byebug'
+ gem 'byebug'
 end
 
 group :development, :test do
+  gem 'sqlite3'
   gem "factory_girl_rails"
   gem 'ffaker'
 end
@@ -46,6 +46,9 @@ group :test do
   gem "rspec-rails", "~> 2.14"
   gem "shoulda-matchers"
   gem "email_spec"
+end
+group :production do
+  gem 'pg', '0.20.0'
 end
 
 gem "devise"
