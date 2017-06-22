@@ -2,9 +2,11 @@ require 'api_constraints'
 
 MarketPlaceApi::Application.routes.draw do
   #mount SabisuRails::Engine => "/sabisu_rails"
-  devise_for :users, :controllers => {:sessions => "api/v1/sessions"}
+  devise_for :users, :controllers => {:sessions => "api/v1/sessions"} do
+    root to: 'devise/registrations#new'
+  end
   # Api definition
-  namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api' }, path: '/'  do
+  namespace :api, defaults: { format: :json }, path: '/'  do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
       # We are going to list our resources here
       resources :users, :only => [:show, :create, :update, :destroy] do
