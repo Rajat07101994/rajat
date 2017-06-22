@@ -12,7 +12,7 @@ class Api::V1::ProductsController < ApplicationController
   end
 
   def create
-    byebug
+    #byebug
     product = current_user.products.build(product_params)
     if product.save
       render json: product, status: 201, location: [:api, product]
@@ -22,7 +22,7 @@ class Api::V1::ProductsController < ApplicationController
   end
 
   def update
-    byebug
+    #byebug
     product = current_user.products.find(params[:id])
     if product.update(product_params)
       render json: product, status: 200, location: [:api, product]

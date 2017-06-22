@@ -25,7 +25,7 @@ class Product < ActiveRecord::Base
   }
 
   def self.search(params = {})
-    byebug
+    #byebug
     #products = params[:product_ids].present? ? Product.find(params[:product_ids]) : Product.all
     products = params[:product_ids].present? ? Product.where(id: params[:product_ids]) : Product
 

@@ -10,7 +10,7 @@ class Order < ActiveRecord::Base
   before_validation :set_total!
 
   def set_total!
-    byebug
+    #byebug
     self.total=0
     placements.each do |placement|
       debugger
@@ -19,13 +19,13 @@ class Order < ActiveRecord::Base
   end
 
   def build_placements_with_product_ids_and_quantities(product_ids_and_quantities)
-    byebug
+    #byebug
     product_ids_and_quantities.each do | product_ids_and_quantity |
       id,quantities =product_ids_and_quantity.split(",")
-      byebug
+      #byebug
       self.placements.build(product_id: id,quantity: quantities)
     end
     ##
   end
-  
+
 end
