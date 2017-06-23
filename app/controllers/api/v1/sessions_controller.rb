@@ -6,6 +6,7 @@ class Api::V1::SessionsController < ApplicationController
     user_password = params[:session][:password]
     user_email = params[:session][:email]
     user = user_email.present? && User.find_by(email: user_email)
+    byebug
 
     if user.valid_password? user_password
       sign_in user, store: false
