@@ -12,9 +12,10 @@ class Api::V1::ProductsController < ApplicationController
   end
 
   def create
-    #byebug
+    # byebug
     product = current_user.products.build(product_params)
     if product.save
+      # byebug
       render json: product, status: 201, location: [:api, product]
     else
       render json: { errors: product.errors }, status: 422

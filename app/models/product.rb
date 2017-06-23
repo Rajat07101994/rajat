@@ -8,6 +8,8 @@ class Product < ActiveRecord::Base
 
   belongs_to :user
 
+
+
   scope :filter_by_title, lambda { |keyword|
     where("lower(title) LIKE ?", "%#{keyword.downcase}%" )
   }
